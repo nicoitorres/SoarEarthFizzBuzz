@@ -1,6 +1,26 @@
 # SoarEarthChallenge
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.0.
+An Angular Web Application to determine if a value is a Fizz, Buzz or FizzBuzz.
+
+### Installation
+
+```
+$ git clone https://github.com/nicoitorres/SoarEarthFizzBuzz
+$ cd SoarEarthFizzBuzz
+```
+
+### Install dependencies
+
+```
+$ npm install
+```
+
+### Run
+
+```
+$ npm start
+```
+
 
 ## Development server
 
