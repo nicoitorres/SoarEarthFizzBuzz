@@ -9,12 +9,31 @@ import { FizzbuzzCheckerService } from 'src/app/services/fizzbuzz-checker.servic
 export class FizzbuzzCheckerComponent implements OnInit {
 
   public userNumberInput: string = "";
+  public fizzbuzzOutput: string = "";
+  public inputOutputs: inputoutput[] = [];
 
   constructor(private fizzCheckerService: FizzbuzzCheckerService) { }
 
   ngOnInit(): void {
   }
+
   fizzbuzzInput() {
-    alert(this.fizzCheckerService.checkInput(parseInt(this.userNumberInput)));
+    let input = parseInt(this.userNumberInput);
+    let output = this.fizzCheckerService.checkInput(input);
+    let inputoutput:inputoutput = {input:input, output:output};
+    
+    this.inputOutputs.push(inputoutput);
+  }
+
+  clearOutput() {
+    this.inputOutputs = [];
+  }
+}
+export class inputoutput {
+  input: number;
+  output: string;
+  constructor(input: number, output: string) {
+    this.input = input;
+    this.output = output;
   }
 }

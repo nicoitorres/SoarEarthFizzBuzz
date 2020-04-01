@@ -1,7 +1,10 @@
 .main-container{
     text-align: center;
 }
-.main-container > input{
-    max-width: 120px;
+.main-container > input, textarea{
+    max-width: 150px;
     margin: 0 auto;
+}
+.output{
+    max-width: 150px;
 }
