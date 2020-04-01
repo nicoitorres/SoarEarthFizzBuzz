@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FizzbuzzCheckerService } from 'src/app/services/fizzbuzz-checker.service';
+import * as appRules from '../../fizzBuzzRules';
 
 @Component({
   selector: 'app-fizzbuzz-checker',
@@ -14,6 +15,9 @@ export class FizzbuzzCheckerComponent implements OnInit {
 
   public maxInputLength:number = 50; //Length of the input box
 
+  public fizzDividerValue:number = appRules.fizzDivider;
+  public acceptedEndings:number[] = appRules.validEndings;
+  
   constructor(private fizzCheckerService: FizzbuzzCheckerService) { }
 
   ngOnInit(): void {
@@ -42,6 +46,7 @@ export class FizzbuzzCheckerComponent implements OnInit {
 
   clearOutput() {
     this.inputOutputs = [];
+    this.userNumberInput = '';
   }
 }
 export class inputoutput { //inputoutput object class

@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
+import * as appRules from '../fizzBuzzRules';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FizzbuzzCheckerService {
-  validEndings = [5, 7]; //Array of valid endings
-  fizzDivier = 3; //Number to divide by to get Fizz
+  
   constructor() { }
 
   checkInput(input: number): string {
@@ -14,8 +14,8 @@ export class FizzbuzzCheckerService {
     if (!input)
       throw new Error("InvalidInput");
     
-    let isBuzz: boolean = this.checkNumberEnding(this.validEndings, input);
-    if (input % this.fizzDivier === 0) { //If divisble by 3
+    let isBuzz: boolean = this.checkNumberEnding(appRules.validEndings, input);
+    if (input % appRules.fizzDivider === 0) { //If divisble by 3
       if (isBuzz) //If also a valid ending
         return "FizzBuzz";
       return "Fizz";

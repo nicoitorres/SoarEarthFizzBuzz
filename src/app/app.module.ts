@@ -4,7 +4,6 @@ import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { FizzbuzzCheckerComponent } from './components/fizzbuzz-checker/fizzbuzz-checker.component';
-
 @NgModule({
   declarations: [
     AppComponent,
