@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { FizzbuzzCheckerComponent } from './components/fizzbuzz-checker/fizzbuzz-checker.component';
@@ -10,7 +11,8 @@ import { FizzbuzzCheckerComponent } from './components/fizzbuzz-checker/fizzbuzz
     FizzbuzzCheckerComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FizzbuzzCheckerService } from 'src/app/services/fizzbuzz-checker.service';
 
 @Component({
   selector: 'app-fizzbuzz-checker',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FizzbuzzCheckerComponent implements OnInit {
 
-  constructor() { }
+  public userNumberInput: string = "";
+
+  constructor(private fizzCheckerService: FizzbuzzCheckerService) { }
 
   ngOnInit(): void {
   }
-
+  fizzbuzzInput() {
+    alert(this.fizzCheckerService.checkInput(parseInt(this.userNumberInput)));
+  }
 }
