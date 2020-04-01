@@ -2,14 +2,14 @@
 
     <h1>Input a number to check its FizzBuzziness</h1>
     <h5>You can input multiple numbers seperated by a comma ","</h5>
-    <input type="text" class="my-3 form-control" [(ngModel)]="userNumberInput">
-    <div class="row mx-auto my-3" style="max-width: 200px;">
+    <input type="text" class="my-3 form-control" [maxlength]="maxInputLength" [(ngModel)]="userNumberInput" placeholder="Input numbers">
+    <div class="row mx-auto my-3" style="max-width: 220px;">
         <div class="col-6">
             <button class="btn btn-success" (click)="fizzbuzzInput()">Check</button>
 
         </div>
         <div class="col-6">
-    <button class="btn btn-warning" (click)="clearOutput()">Clear</button>
+    <button class="btn btn-warning" (click)="clearOutput()">Clear&nbsp;output</button>
             
         </div>
     </div>

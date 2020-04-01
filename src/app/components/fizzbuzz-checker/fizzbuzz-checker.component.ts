@@ -12,17 +12,33 @@ export class FizzbuzzCheckerComponent implements OnInit {
   public fizzbuzzOutput: string = "";
   public inputOutputs: inputoutput[] = [];
 
+  public maxInputLength:number = 50;
+
   constructor(private fizzCheckerService: FizzbuzzCheckerService) { }
 
   ngOnInit(): void {
   }
 
   fizzbuzzInput() {
-    let input = parseInt(this.userNumberInput);
-    let output = this.fizzCheckerService.checkInput(input);
-    let inputoutput:inputoutput = {input:input, output:output};
-    
-    this.inputOutputs.push(inputoutput);
+    let userInput = this.userNumberInput;
+    if (!this.validateInput(userInput)) {
+      alert("Invalid input. Enter only numbers sperated by ,");
+      return;
+      //Handle invalid input here
+    }
+    let inputArray = userInput.split(',');
+    for (let input of inputArray) {
+      let output = this.fizzCheckerService.checkInput(parseInt(input));
+      let inputoutput: inputoutput = { input: parseInt(input), output: output };
+
+      this.inputOutputs.push(inputoutput);
+    }
+  }
+
+  validateInput(input: string): boolean {
+    input = input.replace(/\s/g, "");
+    const regex = /^\d+(,\d+)*$/g;
+    return regex.test(input);
   }
 
   clearOutput() {
