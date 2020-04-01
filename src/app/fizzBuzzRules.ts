@@ -1,4 +1,4 @@
 'use strict';
 
-export const validEndings = [5, 7]; //Array of valid endings
-export const fizzDivider = 3; //Number to divide by to get Fizz
+export const validEndings:number[] = [5, 7]; //Array of valid endings to get Buzz
+export const fizzDivider:number = 3; //Number to divide by to get Fizz
