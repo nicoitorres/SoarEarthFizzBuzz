@@ -12,32 +12,31 @@ export class FizzbuzzCheckerComponent implements OnInit {
   public fizzbuzzOutput: string = "";
   public inputOutputs: inputoutput[] = [];
 
-  public maxInputLength:number = 50;
+  public maxInputLength:number = 50; //Length of the input box
 
   constructor(private fizzCheckerService: FizzbuzzCheckerService) { }
 
   ngOnInit(): void {
   }
 
-  fizzbuzzInput() {
-    let userInput = this.userNumberInput;
-    if (!this.validateInput(userInput)) {
+  fizzbuzzInput() { //Called when Check button is pressed
+    let userInput = this.userNumberInput; //Get the user input
+    if (!this.validateInput(userInput)) { //Check if it's valid, return error if not.
       alert("Invalid input. Enter only numbers sperated by ,");
       return;
-      //Handle invalid input here
     }
-    let inputArray = userInput.split(',');
+    let inputArray = userInput.split(','); //Split the input into an array seperated by commas
     for (let input of inputArray) {
-      let output = this.fizzCheckerService.checkInput(parseInt(input));
-      let inputoutput: inputoutput = { input: parseInt(input), output: output };
+      let output = this.fizzCheckerService.checkInput(parseInt(input)); //Use the checker servize to get the output
+      let inputoutput: inputoutput = { input: parseInt(input), output: output }; //Create an inputoutput object
 
-      this.inputOutputs.push(inputoutput);
+      this.inputOutputs.push(inputoutput); //Push that object to the input output array
     }
   }
 
   validateInput(input: string): boolean {
     input = input.replace(/\s/g, "");
-    const regex = /^\d+(,\d+)*$/g;
+    const regex = /^\d+(,\d+)*$/g; //Any digit followed by a comma and then any digit
     return regex.test(input);
   }
 
@@ -45,7 +44,7 @@ export class FizzbuzzCheckerComponent implements OnInit {
     this.inputOutputs = [];
   }
 }
-export class inputoutput {
+export class inputoutput { //inputoutput object class
   input: number;
   output: string;
   constructor(input: number, output: string) {
